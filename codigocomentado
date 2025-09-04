@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        // Lê a linha de entrada do usuário
+        string inputLine = Console.ReadLine();
+
+        // Separa os nomes por vírgula, remove espaços e aspas extras
+        var names = inputLine.Split(',')
+                               .Select(n => n.Trim().Trim('"'))
+                               .ToList();
+
+        // Lista para armazenar nomes válidos
+        var validNames = new List<string>();
+        // Lista para armazenar mensagens de erro
+        var errors = new List<string>();
+
+        // Itera sobre cada nome processado
+        foreach (var name in names)
+        {
+            // Verifica se o nome é a string "null" ou nulo, vazio ou contém apenas espaços em branco.
+            if (name == "null")
+            {
+                errors.Add("Erro: nome nulo");
+            }
+            else if (string.IsNullOrWhiteSpace(name))
+            {
+                errors.Add("Erro: nome invalido");
+            }
+            else
+            {
+                // Se o nome passou pelas validações, adicione aos nomes válidos
+                validNames.Add(name);
+            }
+        }
+
+        // Exibe a saída formatada
+        // Se houver erros, mostra os nomes válidos e os erros
+        if (errors.Any())
+        {
+            string validosString = string.Join(", ", validNames);
+            string errosString = string.Join(" / ", errors);
+
+            if (string.IsNullOrWhiteSpace(validosString))
+            {
+                Console.WriteLine(errosString);
+            }
+            else
+            {
+                Console.WriteLine($"{validosString} / {errosString}");
+            }
+        }
+        else
+        {
+            // Caso contrário, mostra apenas os nomes válidos
+            Console.WriteLine(string.Join(", ", validNames));
+        }
+    }
+}
