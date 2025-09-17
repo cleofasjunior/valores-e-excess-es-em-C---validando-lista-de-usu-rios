@@ -120,7 +120,3 @@ Embora funcional, o projeto pode ser estendido com as seguintes melhorias:
 * Criar uma versão que suporte **interface gráfica** para melhor usabilidade.
 * Implementar testes automatizados para validar os cenários possíveis.
 * Expandir o sistema para categorizar nomes válidos e inválidos em relatórios.
-
----
-
-👉 Deseja que eu crie também um **novo diagrama visual exclusivo para este projeto** (separado dos anteriores), para deixar o README mais consistente e claro?
